@@ -3,9 +3,37 @@ import React from "react";
 import googleImage from "../assets/googleIcon.png";
 import bookMarkIcon from "../assets/bookmarkIcon.svg";
 
-const Job = ({ title, location, salary }) => {
+const Job = ({
+  id,
+  title,
+  location,
+  salary,
+  experienceLevel,
+  jobType,
+  workType,
+  company,
+  requirements,
+  description,
+  onCLick,
+}) => {
   return (
-    <div className="w-full h-40 bg-grayBg rounded-xl mb-5 p-3 flex flex-col justify-between">
+    <div
+      onClick={() =>
+        onCLick({
+          id,
+          title,
+          location,
+          salary,
+          experienceLevel,
+          jobType,
+          workType,
+          company,
+          requirements,
+          description,
+        })
+      }
+      className="hover:cursor-pointer w-full h-40 bg-myWhite rounded-xl mb-5 p-3 flex flex-col justify-between border border-grayBg"
+    >
       <div className="flex gap-6 items-center">
         <img className="h-10 w-10" src={googleImage} alt="" />
         <div>
@@ -20,7 +48,7 @@ const Job = ({ title, location, salary }) => {
         </h1>
       </div>
       <div className="flex justify-between">
-        <button className="font-semibold hover:bg-grayText hover:text-grayBg text-grayTextDark bg-grayLighter p-2 rounded-2xl">
+        <button className="font-semibold hover:bg-grayLighter text-grayLighter bg-myWhite p-2 border border-grayLighter hover:text-myWhite hover:border-0">
           Apply now
         </button>
         <img
